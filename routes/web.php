@@ -15,9 +15,9 @@ use App\Http\Controllers\AdminController;
 
 Route::POST("/register", [UserController::class, "register"])->name("users/register");
 Route::POST("/login", [UserController::class, "login"])->name("users/login");
-Route::post("/addUser", [UserController::class, "addUser"]);
-Route::delete("/delete/{id}", [UserController::class, "delete"])->name("/delete/{id}");
-Route::PUT("/edit/{id}/{username}/{email}", [UserController::class, "edit"]);
+Route::post("/addUser", [AdminController::class, "addUser"]);
+Route::delete("/delete/{id}", [AdminController::class, "delete"])->name("/delete/{id}");
+Route::PUT("/edit/{id}/{username}/{email}", [AdminController::class, "edit"]);
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', function () {
         return view('login');
